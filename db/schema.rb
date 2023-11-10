@@ -10,9 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_09_050250) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_10_022558) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "pools", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name", null: false
+    t.datetime "start_datetime"
+    t.integer "status", default: 0
+    t.boolean "private", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_pools_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
@@ -24,4 +35,5 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_09_050250) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "pools", "users"
 end
