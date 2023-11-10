@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  resources :users, only: [:new, :create]
+  get "sign-up-or-in", to: "users#new", as: "sign_up_or_in"
+  post "sign-up-or-in", to: "users#create"
+
   get "dashboard", to: "users#show", as: "dashboard"
 
   root "home#index"

@@ -6,7 +6,7 @@ RSpec.describe "Users requests", type: :request do
 
     it "creates a user" do
       expect do
-        post "/users", params: { user: user_attributes }
+        post "/sign-up-or-in", params: { user: user_attributes }
       end.to change(User, :count).by(1)
     end
   end
