@@ -1,0 +1,28 @@
+<div class="columns mt-4">
+  <div class="column is-6 is-offset-3">
+    <h2 class="title">Create a Pool</h2>
+    <%= form_with model: @pool do |f| %>
+      <div class="field">
+        <%= f.label :name, class: "label" %>
+        <div class="control">
+          <%= f.text_field :name, class: "input" %>
+        </div>
+      </div>
+      <div class="field">
+        <%= f.label :start_datetime, "Start Date", class: "label" %>
+        <div class="select is-flex is-flex-wrap-wrap is-justify-content-space-between is-align-items-stretch">
+          <%= f.datetime_select :start_datetime, { ampm: true, order: [:day, :month, :year] }%>
+        </div>
+      </div>
+      <div class="field">
+        <%= f.label :private, class: "checkbox" do %>
+          <%= f.check_box :private %>
+          Private league?
+        <% end %>
+      </div>
+      <div class="field">
+        <%= f.submit class: "button is-fullwidth is-primary is-outlined" %>
+      </div>
+    <% end %>
+  </div>
+</div>
