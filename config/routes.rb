@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get "sign-up-or-in", to: "users#new", as: "sign_up_or_in"
   post "sign-up-or-in", to: "users#create"
 
+  delete "sign-out", to: "sessions#destroy", as: "sign_out"
+
   get "dashboard", to: "users#show", as: "dashboard"
 
   root "home#index"
