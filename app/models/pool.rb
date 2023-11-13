@@ -1,7 +1,12 @@
 class Pool < ApplicationRecord
   belongs_to :superadmin, class_name: "User", foreign_key: "user_id"
-  validates :name, presence: true, uniqueness: { case_sensitive: false }
+  has_many :memberships
+  has_many :member_memberships, -> { where(role: 0) }, class_name: "Membership"
+  has_many :members, through: :member_memberships, source: :user
+  has_many :admin_memberships, -> { where(role: 1) }, class_name: "Membership"
+  has_many :admins, through: :admin_memberships, source: :user
 
+  validates :name, presence: true, uniqueness: { case_sensitive: false }
   validate :start_datetime_over_one_day_away
 
   private
