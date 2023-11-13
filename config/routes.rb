@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   delete "sign-out", to: "sessions#destroy", as: "sign_out"
   get "dashboard", to: "users#show", as: "dashboard"
 
-  resources :pools, only: [:show, :new, :create]
+  resources :pools, only: [:show, :new, :create] do
+    get "/memberships", to: "pools/memberships#index"
+  end
 
   get "up" => "rails/health#show", as: :rails_health_check
 end
