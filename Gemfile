@@ -14,6 +14,9 @@ gem "jbuilder"
 gem "bcrypt", "~> 3.1.7"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
+gem "sentry-ruby", "~> 5.12"
+gem "sentry-rails", "~> 5.12"
+gem "pundit", "~> 2.3"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
@@ -28,7 +31,3 @@ group :development do
   gem "web-console"
   gem "dockerfile-rails"
 end
-
-
-gem "sentry-ruby", "~> 5.12"
-gem "sentry-rails", "~> 5.12"
