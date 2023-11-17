@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :pools, only: [:show, :new, :create] do
     get "/memberships", to: "pools/memberships#index"
+    get "/memberships/new", to: "pools/memberships#new"
+    post "/memberships", to: "pools/memberships#create", as: "membership"
   end
 
   get "up" => "rails/health#show", as: :rails_health_check

@@ -1,0 +1,38 @@
+<div class="columns mt-4">
+  <div class="column is-one-third is-offset-one-third">
+    <h2 class="title">Sign Up or Sign In</h2>
+    <%= form_with model: [@pool, @membership], url: pool_membership_path do |f| %>
+
+      <%= f.fields_for :user do |ff| %>
+        <div class="field">
+          <%= ff.label :email, class: "label" %>
+          <div class="control">
+            <%= ff.text_field :email, class: "input" %>
+          </div>
+        </div>
+        <div class="field">
+          <%= ff.label :first_name, class: "label" %>
+          <div class="control">
+            <%= ff.text_field :first_name, class: "input" %>
+          </div>
+        </div>
+        <div class="field">
+          <%= ff.label :last_name, class: "label" %>
+          <div class="control">
+            <%= ff.text_field :last_name, class: "input" %>
+          </div>
+        </div>
+        <div class="field">
+          <%= ff.label :nickname, class: "label" %>
+          <div class="control">
+            <%= ff.text_field :nickname, class: "input" %>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="control">
+        <%= f.submit "Let's Go!", class: "button is-primary is-outlined is-fullwidth" %>
+      </div>
+    <% end %>
+  </div>
+</div>
