@@ -30,4 +30,5 @@ end
 group :development do
   gem "web-console"
   gem "dockerfile-rails"
+  gem "letter_opener"
 end
