@@ -1,0 +1,33 @@
+<div class="row">
+  <h2>Memberships</h2>
+</div>
+<div class="row">
+  <table class="u-full-width">
+    <thead>
+      <tr>
+        <th>Pool Name</th>
+        <th>Role</th>
+        <th>Membership Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @superadmin_pools.each do |pool| %>
+        <tr>
+          <td><%= pool.name %></td>
+          <td>superadmin</td>
+          <td>active</td>
+          <td>action!</td>
+        </tr>
+      <% end %>
+      <% @memberships.each do |membership| %>
+        <tr>
+          <td><%= membership.pool_name %></td>
+          <td><%= membership.role %></td>
+          <td><%= membership.status %></td>
+          <td>lights, camera</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
